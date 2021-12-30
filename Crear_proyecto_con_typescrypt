@@ -1,0 +1,9 @@
+Un nuevo proyecto con TypesCript se crea con el sigiente comando lo ejecutas en la terminal 
+  
+  npx react-native init NombreProyecto --template react-native-template-typescript
+  
+  
+  una ves creado entras asta tu carpeta para arrancar el proyecto le das enter al sigiente comando
+    
+           npx react-native run-android
+  
