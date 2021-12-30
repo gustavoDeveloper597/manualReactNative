@@ -1,0 +1,60 @@
+Al crear el proyecto:
+  te da una serie de carpetas pero tu deves crear una carpeta src
+  dentro de src se crea una serie de carpetas como las sigientes y dentro de cada carpeta iran nombre parecido a
+    screens     : AlertScreen.tsx
+    components  : HeaderTitle.tsx
+    navigation  : StackNavigation.tsx
+    hooks       : useForm.tsx
+    theme       : appTheme.tsx
+    interfaces  : appInterface.tsx
+    data        : menuItem.tsx
+    
+    
+ Cada archivo tiene la sigiente forma
+    AlertScreen.tsx
+                      import React fron 'react'
+                      import { View, Text } from "react-native";
+                      
+                      export const AlertScreen = () => {
+                        return(
+                          <View>
+                            <Text> Hola mundo </Text>
+                          </View>
+                        )
+                      }
+    HeaderTitle.tsx
+                      import * as React from "react";
+                      import {Text, View} from "react-native";
+
+                      interface Props{
+                          title: string;
+                      }
+
+                      export const HeaderTitle = ( { title }: Props ) => {
+                          return(
+                              <View style={{ marginTop: 20, marginBottom: 20}}>
+                                  <Text style={estilos.title}> {title} </Text>
+                              </View>
+                          )
+                      }
+                      
+    StackNavigation.tsx
+                          import React from 'react';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import {ListaScreen} from "../screen/ListaScreen";
+import {DeatllesListaScreen} from "../screen/DeatllesListaScreen";
+
+const Stack = createStackNavigator();
+
+export const StackNavigation = () => {
+    return (
+        <Stack.Navigator
+
+        >
+            <Stack.Screen name="ListaScreen" component={ListaScreen} />
+            <Stack.Screen name="DeatllesListaScreen" component={DeatllesListaScreen} />
+        </Stack.Navigator>
+    );
+}
+                      
