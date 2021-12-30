@@ -40,21 +40,70 @@ Al crear el proyecto:
                       
     StackNavigation.tsx
                           import React from 'react';
-import 'react-native-gesture-handler';
-import { createStackNavigator } from '@react-navigation/stack';
-import {ListaScreen} from "../screen/ListaScreen";
-import {DeatllesListaScreen} from "../screen/DeatllesListaScreen";
+                          import 'react-native-gesture-handler';
+                          import { createStackNavigator } from '@react-navigation/stack';
+                          
+                          import {ListaScreen} from "../screen/ListaScreen";
+                          import {DeatllesListaScreen} from "../screen/DeatllesListaScreen";
 
-const Stack = createStackNavigator();
+                          const Stack = createStackNavigator();
 
-export const StackNavigation = () => {
-    return (
-        <Stack.Navigator
+                          export const StackNavigation = () => {
+                              return (
+                                  <Stack.Navigator
 
-        >
-            <Stack.Screen name="ListaScreen" component={ListaScreen} />
-            <Stack.Screen name="DeatllesListaScreen" component={DeatllesListaScreen} />
-        </Stack.Navigator>
-    );
-}
+                                  >
+                                      <Stack.Screen name="ListaScreen" component={ListaScreen} />
+                                      <Stack.Screen name="DeatllesListaScreen" component={DeatllesListaScreen} />
+                                  </Stack.Navigator>
+                              );
+                          }
+
+    useForm.tsx
+                  import { useState } from 'react';
+
+                  export const useForm = <T extends Object>( initState: T ) => {
+                      const [state, setState] = useState( initState );
+                      const onChange = <K extends Object> ( value: K, field: keyof T ) => {
+                          setState({
+                              ...state,
+                              [field]: value
+                          });
+                      }
+                      return {
+                          ...state,
+                          form: state,
+                          onChange,
+                      }
+                  }
+                  
+    appTheme.tsx
+                  import {StyleSheet} from "react-native";
+
+                  export const estilos = StyleSheet.create({
+                     title:{
+                         fontSize:35,
+                         fontWeight:'bold'
+                     },
+                      globalMargin:{
+                         marginHorizontal: 20,
+                      }
+                  });
                       
+    appInterface.tsx  
+                      export interface MenuItem {
+                          name: string;
+                          icon: string;
+                          component: string;
+                      }
+
+    menuItem.tsx
+                      import {MenuItem} from "../interfaces/appInterfaces";
+
+                      export const menuItems:MenuItem[] = [
+                          {
+                              name: 'Animation 101',
+                              icon: 'cube-outline',
+                              component: 'Animation101Screen'
+                          }
+                      ]
